@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Page</title>
+</head>
+<body>
+    <form action="/updatepage/{{send_data._id}}" method="POST">
+        <input type="text" name="task" value="{{send_data.content}}">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

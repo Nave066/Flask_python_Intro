@@ -1,32 +1,32 @@
-{% extends 'base.html'%}
-
-{% block head %}
-
-{% endblock %}
-
-{% block body %}
-<div class = "content">
-    <h2>Task Master</h2>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Display</title>
+</head>
+<body>
+    <h1>Task Todo List</h1>
+    <form action="/insertdata" method="POST">
+        <label>Add Task </label>
+        <input type="text" name="task">
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <br>
     <table>
         <tr>
-            <th>Task</th>
-            <th>Added</th>
+            <th>Tasks</th>
+            <th>Date</th>
             <th>Actions</th>
         </tr>
+        {% for i in send%}
         <tr>
-            <td></td>
-             <td></td>
-             <td>
-                 <a href="">Delete</a>
-                 <br>
-                 <a href="">Update</a>
-             </td>
+            <td>{{i.content}}</td>
+            <td>{{i.date_created}}</td>
+            <td><a href="/updatepage/{{i._id}}">Update</a>
+                <a href="/deletepage/{{i._id}}">Delete</a></td>
         </tr>
+        {% endfor%}
     </table>
-    <form action="/" method="POST">
-        <input type="text" name="content" id="content">
-        <input type="submit" value="Add Task">
-    </form>
-</div>
-{% endblock %}
+</body>
+</html>
